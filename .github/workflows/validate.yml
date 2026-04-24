@@ -1,0 +1,28 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Validate Home Assistant app metadata
+        shell: ruby {0}
+        run: |
+          require "yaml"
+
+          repository = YAML.load_file("repository.yaml")
+          raise "repository name missing" unless repository.fetch("name")
+
+          config_text = File.read("quartermaster/config.yaml")
+          config = YAML.safe_load(config_text)
+
+          raise "unexpected image" unless config.fetch("image") == "ghcr.io/jbg/quartermaster"
+          raise "legacy must be absent" if config.key?("legacy")
+          raise "version must match image tag format" unless config.fetch("version").match?(/\A\d+\.\d+\.\d+\z/)
+          raise "missing amd64/aarch64" unless config.fetch("arch").sort == ["aarch64", "amd64"]
+          raise "webui must use exposed port" unless config.fetch("webui") == "http://[HOST]:[PORT:8080]/"
