@@ -9,11 +9,12 @@ arch:
 startup: application
 boot: auto
 image: ghcr.io/jbg/quartermaster
+ingress: true
+ingress_port: 8080
 ports:
-  8080/tcp: 8080
+  8080/tcp: null
 ports_description:
-  8080/tcp: Quartermaster web and API
-webui: http://[HOST]:[PORT:8080]/
+  8080/tcp: Quartermaster web and API (not used for ingress)
 watchdog: http://[HOST]:[PORT:8080]/healthz
 backup: hot
 stage: experimental
