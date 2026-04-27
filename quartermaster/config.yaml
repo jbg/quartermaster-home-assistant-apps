@@ -1,5 +1,5 @@
 name: Quartermaster
-version: "1.2.3"
+version: "1.2.4"
 slug: quartermaster
 description: Self-hosted kitchen inventory for your household
 url: https://github.com/jbg/quartermaster
