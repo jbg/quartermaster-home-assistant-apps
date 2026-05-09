@@ -23,3 +23,9 @@ https://quartermaster.example.com
 ## Reminder Options
 
 Expiry reminders are enabled by default in this App profile. Reminder fire hour and minute are interpreted in each household's configured timezone.
+
+## OpenFoodFacts Contributions
+
+To store per-user OpenFoodFacts credentials for product contributions, set `off_credential_encryption_key` to a long random secret in the App configuration and restart the App.
+
+Keep this value stable. Quartermaster uses it to encrypt saved OpenFoodFacts passwords; changing it later prevents existing saved passwords from being decrypted.

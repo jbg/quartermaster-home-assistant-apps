@@ -25,6 +25,7 @@ options:
   expiry_reminder_lead_days: 1
   expiry_reminder_fire_hour: 9
   expiry_reminder_fire_minute: 0
+  off_credential_encryption_key: ""
   auth_session_sweep_interval_seconds: 86400
   expiry_reminder_sweep_interval_seconds: 3600
   log_format: json
@@ -36,6 +37,7 @@ schema:
   expiry_reminder_lead_days: int(0,)
   expiry_reminder_fire_hour: int(0,23)
   expiry_reminder_fire_minute: int(0,59)
+  off_credential_encryption_key: password?
   auth_session_sweep_interval_seconds: int(0,)
   expiry_reminder_sweep_interval_seconds: int(0,)
   log_format: list(text|json)
