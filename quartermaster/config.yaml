@@ -11,6 +11,7 @@ boot: auto
 image: ghcr.io/jbg/quartermaster
 ingress: true
 ingress_port: 8080
+panel_icon: mdi:archive-search-outline
 ports:
   8080/tcp: null
 ports_description:
