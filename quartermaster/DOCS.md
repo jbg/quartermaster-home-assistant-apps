@@ -29,3 +29,13 @@ Expiry reminders are enabled by default in this App profile. Reminder fire hour 
 To store per-user OpenFoodFacts credentials for product contributions, set `off_credential_encryption_key` to a long random secret in the App configuration and restart the App.
 
 Keep this value stable. Quartermaster uses it to encrypt saved OpenFoodFacts passwords; changing it later prevents existing saved passwords from being decrypted.
+
+## Recipes, AI, and Suppliers
+
+Saved recipes and supplier review flows work without external AI credentials.
+
+To enable AI-generated pantry recipe ideas, set `ai_provider` to `openrouter`, set `ai_model` to an OpenRouter model id, and provide `ai_openrouter_api_key`. Leave `ai_openrouter_base_url` at the default unless you are using a compatible proxy. Keep `ai_retain_raw_responses` disabled unless you are deliberately debugging provider responses.
+
+To store household supplier credentials, set `supplier_credential_encryption_key` to a long random secret and restart the App.
+
+Keep this value stable. Quartermaster uses it to encrypt saved supplier credentials; changing it later prevents existing saved credentials from being decrypted.

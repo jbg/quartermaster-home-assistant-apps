@@ -27,8 +27,14 @@ options:
   expiry_reminder_fire_hour: 9
   expiry_reminder_fire_minute: 0
   off_credential_encryption_key: ""
-  auth_session_sweep_interval_seconds: 86400
-  expiry_reminder_sweep_interval_seconds: 3600
+  supplier_credential_encryption_key: ""
+  ai_provider: disabled
+  ai_model: ""
+  ai_retain_raw_responses: false
+  ai_openrouter_api_key: ""
+  ai_openrouter_base_url: https://openrouter.ai/api/v1
+  auth_session_cleanup_interval_seconds: 86400
+  expiry_reminder_reconcile_interval_seconds: 3600
   log_format: json
   rust_log: info
 schema:
@@ -39,7 +45,13 @@ schema:
   expiry_reminder_fire_hour: int(0,23)
   expiry_reminder_fire_minute: int(0,59)
   off_credential_encryption_key: password?
-  auth_session_sweep_interval_seconds: int(0,)
-  expiry_reminder_sweep_interval_seconds: int(0,)
+  supplier_credential_encryption_key: password?
+  ai_provider: list(disabled|openrouter)
+  ai_model: str?
+  ai_retain_raw_responses: bool
+  ai_openrouter_api_key: password?
+  ai_openrouter_base_url: str
+  auth_session_cleanup_interval_seconds: int(0,)
+  expiry_reminder_reconcile_interval_seconds: int(0,)
   log_format: list(text|json)
   rust_log: str
